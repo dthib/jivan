@@ -1,6 +1,6 @@
 [server]
   bind_host = "localhost"
-  bind_port = 9000
+  bind_port = 8080
   url_scheme = "http"
   url_hostport = "geo.kralidis.ca"
   url_basepath = "/jivan/"

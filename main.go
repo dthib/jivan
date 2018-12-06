@@ -52,7 +52,7 @@ func main() {
 	var err error
 
 	flag.StringVar(&bindIp, "b", "127.0.0.1", "IP address for the server to listen on")
-	flag.IntVar(&bindPort, "p", 9000, "port for the server to listen on")
+	flag.IntVar(&bindPort, "p", 8080, "port for the server to listen on")
 	flag.StringVar(&serveAddress, "s", "", "IP:Port that result urls will be constructed with (defaults to the IP:Port used in request)")
 	flag.StringVar(&dataSource, "d", "", "data source (path to .gpkg file or connection string to PostGIS database i.e 'user={user} password={password} dbname={dbname} host={host} port={port}')")
 	flag.StringVar(&configFile, "c", "", "config (path to .toml file)")
