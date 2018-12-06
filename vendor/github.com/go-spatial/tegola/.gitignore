@@ -1,0 +1,5 @@
+.DS_Store
+.idea
+documents
+*.toml*.out
+.env
