@@ -1,0 +1,22 @@
+package: github.com/go-spatial/jivan
+import:
+- package: github.com/BurntSushi/toml
+  version: f0aeabca5a127c4078abb8c8d64298b147264b55
+- package: github.com/akrylysov/algnhsa
+- package: github.com/getkin/kin-openapi
+  subpackages:
+  - openapi3
+  - openapi3filter
+- package: github.com/go-spatial/geom
+  version: 3d919e27757d7c50928cc606e27b1bc401a76fe5
+  subpackages:
+  - encoding/geojson
+- package: github.com/go-spatial/tegola
+  subpackages:
+  - dict
+  - provider
+  - provider/gpkg
+  - provider/postgis
+- package: github.com/julienschmidt/httprouter
+- package: github.com/rs/cors
+- package: github.com/xeipuuv/gojsonschema

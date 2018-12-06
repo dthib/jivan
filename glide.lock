@@ -1,0 +1,68 @@
+hash: 94484411bac728c47d71e7279d0a3affd62334918de65f57da330d0063fdeef0
+updated: 2018-10-31T10:48:04.622165+01:00
+imports:
+- name: github.com/akrylysov/algnhsa
+  version: 476f6cb063482500fc84728a687933a4e4b0f4fd
+- name: github.com/aws/aws-lambda-go
+  version: fa1a118928cc98dce34b990f0ab244dc13b1a8e6
+  subpackages:
+  - events
+  - lambda
+  - lambda/messages
+  - lambdacontext
+- name: github.com/BurntSushi/toml
+  version: f0aeabca5a127c4078abb8c8d64298b147264b55
+- name: github.com/getkin/kin-openapi
+  version: 7a7ffdc5bc15156bae6cfb79572549adc49c5ee7
+  subpackages:
+  - jsoninfo
+  - openapi3
+  - openapi3filter
+  - pathpattern
+- name: github.com/ghodss/yaml
+  version: c7ce16629ff4cd059ed96ed06419dd3856fd3577
+- name: github.com/go-spatial/geom
+  version: 3d919e27757d7c50928cc606e27b1bc401a76fe5
+  subpackages:
+  - encoding/geojson
+  - encoding/wkb
+  - encoding/wkb/internal/consts
+  - encoding/wkb/internal/decode
+  - encoding/wkb/internal/encode
+  - slippy
+- name: github.com/go-spatial/tegola
+  version: a84f00c20a9da58371c36971141ddf7f8ea59d61
+  subpackages:
+  - basic
+  - dict
+  - internal/log
+  - maths
+  - maths/webmercator
+  - provider
+  - provider/gpkg
+  - provider/postgis
+- name: github.com/jackc/pgx
+  version: 381a1e8156ff5198b83cbb2dd63471aab0b67995
+  subpackages:
+  - chunkreader
+  - internal/sanitize
+  - pgio
+  - pgproto3
+  - pgtype
+- name: github.com/julienschmidt/httprouter
+  version: 26a05976f9bf5c3aa992cc20e8588c359418ee58
+- name: github.com/mattn/go-sqlite3
+  version: c7c4067b79cc51e6dfdcef5c702e74b1e0fa7c75
+- name: github.com/pkg/errors
+  version: 059132a15dd08d6704c67711dae0cf35ab991756
+- name: github.com/rs/cors
+  version: a3460e445dd310dbefee993fe449f2ff9c08ae71
+- name: github.com/xeipuuv/gojsonpointer
+  version: 4e3ac2762d5f479393488629ee9370b50873b3a6
+- name: github.com/xeipuuv/gojsonreference
+  version: bd5ef7bd5415a7ac448318e64f11a24cd21e594b
+- name: github.com/xeipuuv/gojsonschema
+  version: f3a9dae5b19473510a3062802a98815f609ed747
+- name: gopkg.in/yaml.v2
+  version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
+testImports: []
