@@ -80,12 +80,12 @@ func main() {
 		config.Configuration.Server.URLHostPort = serveAddress
 	}
 
-	var autoconfig func(ds string) (dict.Dicter, error)
+	var autoconfig func(ds string) (map[string]interface {}, error)
 	var ntp func(config dict.Dicter) (tegola_provider.Tiler, error)
 	if dataSource != "" {
 		// Is this a PostGIS conn string or GeoPackage path?
 		if _, err := os.Stat(config.Configuration.Providers.Data); os.IsNotExist(err) {
-			autoconfig = postgis.AutoConfig
+			//autoconfig = postgis.AutoConfig
 			ntp = postgis.NewTileProvider
 		} else {
 			autoconfig = gpkg.AutoConfig
@@ -107,7 +107,7 @@ func main() {
 		panic(fmt.Sprintf("data provider auto-config failure for '%v': %v", dataSource, err))
 	}
 
-	dataProvider, err := ntp(dataConfig)
+	dataProvider, err := ntp(dict.Dicter(dict.Dict(dataConfig)))
 	if err != nil {
 		panic(fmt.Sprintf("data provider creation error for '%v': %v", dataSource, err))
 	}
