@@ -131,7 +131,7 @@ func GenerateOpenAPIDocument() {
 							Value: &openapi3.Response{
 								// TODO: openapi3.NewContentWithJSONSchema() would help, but is broken
 								Content: openapi3.Content{
-									"application/json": &openapi3.ContentType{
+									"application/json": &openapi3.MediaType{
 										Schema: &openapi3.SchemaRef{
 											Value: &CollectionsInfoSchema,
 										},
@@ -165,7 +165,7 @@ func GenerateOpenAPIDocument() {
 								// TODO: openapi3.NewContentWithJSONSchema() would help, but is broken
 								//
 								Content: openapi3.Content{
-									"application/json": &openapi3.ContentType{
+									"application/json": &openapi3.MediaType{
 										Schema: &openapi3.SchemaRef{
 											Value: &CollectionInfoSchema,
 										},
@@ -238,7 +238,7 @@ func GenerateOpenAPIDocument() {
 						"200": &openapi3.ResponseRef{
 							Value: &openapi3.Response{
 								Content: openapi3.Content{
-									"application/json": &openapi3.ContentType{
+									"application/json": &openapi3.MediaType{
 										Schema: &openapi3.SchemaRef{
 											Ref: "http://geojson.org/schema/FeatureCollection.json",
 										},
@@ -280,7 +280,7 @@ func GenerateOpenAPIDocument() {
 						"200": &openapi3.ResponseRef{
 							Value: &openapi3.Response{
 								Content: openapi3.Content{
-									"application/json": &openapi3.ContentType{
+									"application/json": &openapi3.MediaType{
 										Schema: &openapi3.SchemaRef{
 											Ref: "http://geojson.org/schema/Feature.json",
 										},

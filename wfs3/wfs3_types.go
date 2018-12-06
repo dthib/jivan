@@ -75,7 +75,7 @@ var RootContentSchema openapi3.Schema = openapi3.Schema{
 // --- @See https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/bbox.yaml
 //	for bbox schema
 // maxItems is needed for setting the bbox array MaxItems in the below Schema literal.
-var maxItems int64 = 4
+var maxItems uint64 = 4
 
 type Bbox struct {
 	Crs  string    `json:"crs"`
@@ -355,14 +355,14 @@ func (f *Feature) MarshalHTML(c config.Config) ([]byte, error) {
 	return util.RenderTemplate(tmpl_base, data)
 }
 
-func pint64(i int) *int64 {
-	i64 := int64(i)
-	return &i64
+func puint64(i int) *uint64 {
+	ui64 := uint64(i)
+	return &ui64
 }
 
 var BBoxSchema openapi3.Schema = openapi3.Schema{
 	Type:      "array",
 	Items:     &openapi3.SchemaRef{Value: openapi3.NewFloat64Schema()},
-	MinLength: int64(4),
-	MaxLength: pint64(4),
+	MinLength: uint64(4),
+	MaxLength: puint64(4),
 }
