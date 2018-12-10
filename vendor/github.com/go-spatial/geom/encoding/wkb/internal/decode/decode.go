@@ -144,6 +144,43 @@ func Polygon(r io.Reader, bom binary.ByteOrder) (ply geom.Polygon, err error) {
 	return ply, err
 }
 
+func LinerRingZ(r io.Reader, bom binary.ByteOrder) (rn [][2]float64, err error) {
+	var num uint32 // Number of points
+	if err = binary.Read(r, bom, &num); err != nil {
+		return rn, err
+	}
+	rn = make([][2]float64, num)
+	var trashCoordinate float64
+	for i := range rn {
+		if err = binary.Read(r, bom, &rn[i]); err != nil {
+			return rn, err
+		}
+		binary.Read(r, bom, &trashCoordinate)
+	}
+	if num > 1 {
+		// Remove the last point if it is the same.
+		if rn[0][0] == rn[num-1][0] && rn[0][1] == rn[num-1][1] {
+			rn = rn[:num-1]
+		}
+	}
+
+	return rn, err
+}
+
+func PolygonZ(r io.Reader, bom binary.ByteOrder) (ply geom.Polygon, err error) {
+	var num uint32
+	if err = binary.Read(r, bom, &num); err != nil {
+		return ply, err
+	}
+	ply = make([][][2]float64, num)
+	for i := range ply {
+		if ply[i], err = LinerRingZ(r, bom); err != nil {
+			return ply, err
+		}
+	}
+	return ply, err
+}
+
 func MultiPolygon(r io.Reader, bom binary.ByteOrder) (plys geom.MultiPolygon, err error) {
 	var num uint32
 	if err = binary.Read(r, bom, &num); err != nil {

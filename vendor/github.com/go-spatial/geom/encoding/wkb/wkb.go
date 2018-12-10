@@ -31,6 +31,7 @@ const (
 	Point           = consts.Point
 	LineString      = consts.LineString
 	Polygon         = consts.Polygon
+	PolygonZ        = consts.PolygonZ
 	MultiPoint      = consts.MultiPoint
 	MultiLineString = consts.MultiLineString
 	MultiPolygon    = consts.MultiPolygon
@@ -65,6 +66,9 @@ func Decode(r io.Reader) (geo geom.Geometry, err error) {
 		return geom.MultiLineString(mln), err
 	case Polygon:
 		pl, err := decode.Polygon(r, bom)
+		return geom.Polygon(pl), err
+	case PolygonZ:
+		pl, err := decode.PolygonZ(r, bom)
 		return geom.Polygon(pl), err
 	case MultiPolygon:
 		mpl, err := decode.MultiPolygon(r, bom)

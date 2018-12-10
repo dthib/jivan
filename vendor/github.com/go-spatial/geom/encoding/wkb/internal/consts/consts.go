@@ -6,6 +6,7 @@ const (
 	Point           uint32 = 1
 	LineString      uint32 = 2
 	Polygon         uint32 = 3
+	PolygonZ        uint32 = 1003
 	MultiPoint      uint32 = 4
 	MultiLineString uint32 = 5
 	MultiPolygon    uint32 = 6
