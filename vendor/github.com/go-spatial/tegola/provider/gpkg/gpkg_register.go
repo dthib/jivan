@@ -85,10 +85,10 @@ func AutoConfig(gpkgPath string) (map[string]interface{}, error) {
 func extractColsFromSQL(sql string) []string {
 	// Get names of all columns
 	// Extract column definitions from sql.
-	colDefsPattern := `CREATE.*?\(\s+(.*)$`
+	colDefsPattern := `^CREATE[^(]*\(\s*(.*)\s*\)\s*$`
 	colDefsFinder := regexp.MustCompile(colDefsPattern)
 
-	colPattern := `"(.+?)"`
+	colPattern := `["']([^"']+)["']`
 	colFinder := regexp.MustCompile(colPattern)
 
 	// Get all column names (drop "CREATE TABLE (" portion)
