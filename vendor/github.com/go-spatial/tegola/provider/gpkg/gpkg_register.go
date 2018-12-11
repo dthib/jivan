@@ -130,7 +130,7 @@ func featureTableMetaData(gpkg *sql.DB) (map[string]featureTableDetails, error) 
 	geomTableDetails := make(map[string]featureTableDetails)
 
 	// Find the primary key column name from the table's creation sql.
-	pkPattern := `"(.+)" .*?PRIMARY KEY`
+	pkPattern := `\(\s*["']([^"']+)["'] .*?PRIMARY KEY`
 	pkFinder := regexp.MustCompile(pkPattern)
 
 	// iterate each row extracting meta data about each table
