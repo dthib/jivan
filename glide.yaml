@@ -20,3 +20,4 @@ import:
 - package: github.com/julienschmidt/httprouter
 - package: github.com/rs/cors
 - package: github.com/xeipuuv/gojsonschema
+- package: github.com/kelseyhightower/envconfig
