@@ -30,6 +30,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/go-spatial/jivan/config"
@@ -41,6 +42,7 @@ import (
 	tegola_provider "github.com/go-spatial/tegola/provider"
 	"github.com/go-spatial/tegola/provider/gpkg"
 	"github.com/go-spatial/tegola/provider/postgis"
+	"github.com/kelseyhightower/envconfig"
 )
 
 func main() {
@@ -71,6 +73,11 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
+	}
+
+	err = envconfig.Process("JIVAN", &config.Configuration.Server)
+	if err != nil {
+		log.Printf("Error while reading environment configs: %s", err.Error())
 	}
 
 	config.Configuration.Server.BindHost = bindIp
