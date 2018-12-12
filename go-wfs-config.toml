@@ -1,9 +1,9 @@
 [server]
-  bind_host = "localhost"
-  bind_port = 9000
+  bind_host = ""
+  bind_port = 8080
   url_scheme = "http"
-  url_hostport = "geo.kralidis.ca"
-  url_basepath = "/jivan/"
+  url_hostport = "127.0.0.1"
+  url_basepath = ""
   default_mimetype = "application/json; charset=UTF-8"
   encoding = "utf-8"
   language = "en-US"
