@@ -34,8 +34,8 @@ import (
 	"hash/fnv"
 	"log"
 
-	"github.com/go-spatial/jivan/config"
 	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/go-spatial/jivan/config"
 )
 
 var openAPI3Schema *openapi3.Swagger
