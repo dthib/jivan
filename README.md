@@ -1,4 +1,6 @@
-# jivan (जीवन) [![Build Status](https://travis-ci.org/go-spatial/jivan.png)](https://travis-ci.org/go-spatial/jivan)
+# fork of jivan: https://github.com/go-spatial/jivan
+
+# jivan (जीवन)
 
 jivan is a [Go](https://golang.org) server implementation of [OGC WFS 3.0](https://github.com/opengeospatial/WFS_FES).
 
