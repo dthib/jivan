@@ -32,6 +32,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path"
 
 	"github.com/go-spatial/jivan/config"
 	"github.com/go-spatial/jivan/data_provider"
@@ -87,11 +88,24 @@ func main() {
 		config.Configuration.Server.URLHostPort = serveAddress
 	}
 
-	var autoconfig func(ds string) (map[string]interface {}, error)
+	// If not set in command line, use configuration file
+	if dataSource == "" {
+		dataSource = config.Configuration.Providers.Data
+	}
+
+	if !path.IsAbs(dataSource) {
+		wd, err := os.Getwd()
+		if err != nil {
+			log.Fatal(err)
+		}
+		dataSource = path.Join(wd, dataSource)
+	}
+
+	var autoconfig func(ds string) (map[string]interface{}, error)
 	var ntp func(config dict.Dicter) (tegola_provider.Tiler, error)
 	if dataSource != "" {
 		// Is this a PostGIS conn string or GeoPackage path?
-		if _, err := os.Stat(config.Configuration.Providers.Data); os.IsNotExist(err) {
+		if _, err := os.Stat(dataSource); os.IsNotExist(err) {
 			// TODO: to be fixed when this pull request is merged https://github.com/go-spatial/tegola/pull/412
 			//autoconfig = postgis.AutoConfig
 			ntp = postgis.NewTileProvider

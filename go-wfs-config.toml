@@ -43,4 +43,4 @@
       role = "pointOfContact"
 
 [providers]
-  data = "test-data/athens-osm-20170921.gpkg"
+  data = "test_data/athens-osm-20170921.gpkg"
